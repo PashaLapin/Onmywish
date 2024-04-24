@@ -1,21 +1,23 @@
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    login();
+});
+
 function login() {
     const enteredPassword = document.getElementById('password').value;
-    const adminPassword = "admin123"; // Change this in a real application
-
+    const adminPassword = "admin123";
     if (enteredPassword === adminPassword) {
-        document.getElementById('admin-container').style.display = 'block'; // Show the admin panel
-        document.getElementById('login-container').style.display = 'none'; // Hide the login panel
-        displayOrders(); // Display orders on successful login
+        document.getElementById('admin-container').style.display = 'flex';
+        document.getElementById('login-container').style.display = 'none';
+        displayOrders();
     } else {
         alert("Incorrect password!");
     }
 }
 
-// Make sure to update other functions like displayOrders to handle UI updates correctly.
-
-
 document.getElementById('create-order-form').addEventListener('submit', function(event) {
     event.preventDefault();
+    
     var orderId = document.getElementById('new-order-id').value;
     var orderStatus = document.getElementById('new-order-status').value;
     var orderComment = document.getElementById('new-order-comment').value;
@@ -23,14 +25,24 @@ document.getElementById('create-order-form').addEventListener('submit', function
         status: orderStatus,
         comment: orderComment
     };
+
+    // Save the order data to localStorage
     localStorage.setItem(orderId, JSON.stringify(orderData));
-    displayOrders(); // Update order list after creating/updating an order
+
+    // Update the order list display
+    displayOrders();
+
+    // Alert the user that the order has been updated
     alert('Order ' + orderId + ' has been updated!');
+
+    // Clear the form fields after submission
+    document.getElementById('create-order-form').reset();
 });
+
 
 function displayOrders() {
     var ordersDisplay = document.getElementById('orders-display');
-    ordersDisplay.innerHTML = ''; // Clear the current list
+    ordersDisplay.innerHTML = '';
     for (var i = 0; i < localStorage.length; i++) {
         var key = localStorage.key(i);
         var order = JSON.parse(localStorage.getItem(key));
@@ -48,6 +60,6 @@ function displayOrders() {
 
 function deleteOrder(orderId) {
     localStorage.removeItem(orderId);
-    displayOrders(); // Refresh the displayed list after deletion
+    displayOrders();
     alert('Order ' + orderId + ' has been deleted.');
 }

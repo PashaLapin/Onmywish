@@ -1,55 +1,123 @@
 body, html {
     height: 100%;
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
+    font-family: 'Montserrat', Arial, sans-serif; /* Montserrat as the primary font */
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
-#login-container, #admin-container {
-    text-align: center;
+#login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+#admin-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.sidebar {
+    flex: 1;
+    background-color: #f4f4f4;
     padding: 20px;
-    background: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
+    overflow-y: auto;
+    height: 100%;
 }
 
-.order-card {
-    border: 1px solid #ccc;
-    background: #fff;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease-in-out;
+#order-form-section {
+    flex: 2;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center; /* Centers items horizontally within the container */
 }
 
-.order-card:hover {
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+#admin-section-title {
+    text-align: center; /* Center the text horizontally */
+    margin-bottom: 20px; /* Adds space between the title and the form below */
+    width: 100%; /* Ensures it spans the full width of its container */
 }
 
-.input-field, button {
-    padding: 10px;
-    margin-top: 10px;
-    width: 80%;
-    border: 2px solid #007BFF;
-    border-radius: 5px;
+.input-field, input, button {
+    font-size: 18px; /* Larger font size for better readability */
+    width: 90%; /* Controls the width of the inputs relative to their container */
+    padding: 15px; /* More padding for a better user interface */
+    margin: 10px 0; /* Vertical spacing between each form element */
+    border: 2px solid #007BFF; /* Blue border for a bit of color and design */
+    border-radius: 5px; /* Rounded corners for a softer look */
 }
 
 button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
+    background-color: #007BFF; /* Blue background for buttons */
+    color: white; /* White text for better contrast */
+    cursor: pointer; /* Cursor changes to pointer to indicate it's clickable */
 }
 
 .delete-button {
-    padding: 5px 10px;
+    background-color: #ff4444; /* Red background for delete buttons to indicate caution */
+    color: white;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #cc0000; /* Darker red on hover for visual feedback */
+}
+
+/* Existing styles for body, input fields, buttons, etc. */
+
+/* Sidebar styling */
+.sidebar {
+    flex: 1;
+    background-color: #f4f4f4;
+    padding: 20px;
+    overflow-y: auto;
+    height: 100%;
+}
+
+/* Card styling for each order */
+.order-card {
+    background-color: white;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInMoveUp 0.5s ease forwards;
+}
+
+/* Hover effect to lift the card slightly */
+.order-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Fade-in and move up animation */
+@keyframes fadeInMoveUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button styles for consistency */
+.delete-button {
     background-color: #ff4444;
     color: white;
-    border: none;
     border-radius: 5px;
+    padding: 8px 15px;
     cursor: pointer;
+    border: none;  /* Ensure buttons don't have an extra border */
 }
 
 .delete-button:hover {
