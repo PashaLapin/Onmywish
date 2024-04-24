@@ -1,0 +1,57 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-container, #admin-container {
+    text-align: center;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.order-card {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.order-card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.input-field, button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 80%;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-button {
+    padding: 5px 10px;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #cc0000;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnmyWish - Admin Panel</title>
+    <link rel="stylesheet" href="adminStyle.css">
+</head>
+<body>
+    <div id="login-container">
+        <input type="password" id="password" placeholder="Enter password" required>
+        <button onclick="login()">Login</button>
+    </div>
+    <div id="admin-container" style="display: none;">
+        <h2>Admin Section</h2>
+        <form id="create-order-form">
+            <input type="text" id="new-order-id" placeholder="Enter unique order ID" required>
+            <input type="text" id="new-order-status" placeholder="Enter order status" required>
+            <input type="text" id="new-order-comment" placeholder="Enter comment" required>
+            <button type="submit">Create/Update Order</button>
+        </form>
+        <div id="orders-list">
+            <h3>All Orders</h3>
+            <div id="orders-display"></div>
+        </div>
+    </div>
+    <script src="adminScript.js"></script>
+</body>
+</html>

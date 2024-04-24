@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONMYWISH - Track Your Order</title>
+    <link rel="stylesheet" href="userStyle.css">
+</head>
+<body>
+    <div id="main-container">
+        <h1>ONMYWISH</h1>
+        <form id="order-form">
+            <input type="text" id="order-code" placeholder="Enter your order code" required>
+            <button type="submit">Check Order</button>
+        </form>
+        <div id="order-status" class="hidden card">
+            <h2>Order Status:</h2>
+            <p id="order-details"></p>
+        </div>
+    </div>
+    <script src="userScript.js"></script>
+</body>
+</html>
